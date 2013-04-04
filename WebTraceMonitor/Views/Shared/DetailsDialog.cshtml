@@ -1,0 +1,62 @@
+﻿<div id="detailsDialog" title="Trace Details" style="display: none">
+    <textarea id="dlg_message" class="dlg-field-message" data-bind="text: Message">
+</textarea>
+    <table>
+        <thead>
+            <tr>
+                <td style="left:0px; width: 100px;"></td>
+                <td style="left:101px; width: 200px;"></td>
+                <td style="left:301px; width: 100px;"></td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Logged: 
+                </td>
+                <td><strong data-bind="text: Timestamp"></strong></td>
+                <td>
+                    Category: 
+                </td>
+                <td><strong data-bind="text: Category"></strong></td>
+            </tr>
+            <tr>
+                <td>
+                    Machine: 
+                </td>
+                <td><strong data-bind="text: Machine"></strong></td>
+                <td>
+                    Process Id: 
+                </td>
+                <td><strong data-bind="text: ProcessId"></strong></td>
+            </tr>
+            <tr>
+                <td>
+                    Level: 
+                </td>
+                <td>
+                    <strong data-bind="text: Level"</strong>
+                </td>
+                <td>
+                    Source: 
+                </td>
+                <td>
+                    <strong data-bind="text: Source"></strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Thread Id:
+                </td>
+                <td> <strong data-bind="text: ThreadId"></strong></td>
+                <td>
+                    
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <input id="imgDetailsUp" type="image" class="details-up-button" />
+    <input id="imgDetailsDown" type="image" class="details-down-button"/>
+</div>

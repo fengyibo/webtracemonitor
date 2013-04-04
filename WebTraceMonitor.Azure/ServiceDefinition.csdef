@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="AzureLiveTrace" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2012-10.1.8">
+  <WebRole name="WebTraceMonitor" vmsize="ExtraSmall" enableNativeCodeExecution="false">
+    <Sites>
+      <Site name="Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="Endpoint1" />
+        </Bindings>
+      </Site>
+    </Sites>
+    <Endpoints>
+      <InputEndpoint name="Endpoint1" protocol="http" port="80" />
+    </Endpoints>
+    <ConfigurationSettings>
+      <Setting name="WebTraceMonitor.DoSProtection" />
+      <Setting name="WebTraceMonitor.TestDataEnabled" />
+    </ConfigurationSettings>
+  </WebRole>
+</ServiceDefinition>
