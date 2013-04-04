@@ -45,7 +45,7 @@
     <PublishProfile Include="Profiles\Demo Deployment.azurePubxml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LiveTraceWebApp\WebTraceMonitor.csproj">
+    <ProjectReference Include="..\WebTraceMonitor\WebTraceMonitor.csproj">
       <Name>WebTraceMonitor</Name>
       <Project>{6961f6fc-d2d7-4e20-a5b3-339057d93056}</Project>
       <Private>True</Private>
