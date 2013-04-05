@@ -27,7 +27,7 @@ The current release in the master branch is version 0.8.00 (BETA). Tested with l
 
 ### Windows Azure Websites
 
-The easiest way to deploy Web Trace Monitor is by deploying it directly from GitHub to a Windows Azure Website:
+The easiest way to deploy Web Trace Monitor is by publishing it directly from GitHub to a Windows Azure Website:
 
 + Create a Fork of the [master] branch on GitHub
 + Create a new WebSite with the Windows Azure Management Portal 
