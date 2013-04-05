@@ -170,6 +170,7 @@
             wtm.index++;
             var obj = arr[k];
             obj.id = pad(wtm.index, 8);
+            obj.Timestamp = wtm.formatDateTime(new Date(parseInt(obj.Timestamp.substr(6)))),
             wtm.data.push(obj);
             if (obj.Level === "Error") {
                 wtm.errorCount++;
@@ -185,6 +186,29 @@
         if (arr.length > 0) {
             wtm.hasChanged = true;
         }
+    },
+    
+    addZero: function (i) {
+        i = i + "";
+        if (i.length == 1) {
+            i = "0" + i;
+        }
+        return i;
+    },
+    
+    addTwoZeros: function (i) {
+        i = i + "";
+        if (i.length == 1) {
+            i = "0" + i;
+        }
+        if (i.length == 2) {
+            i = "0" + i;
+        }
+        return i;
+    },
+    
+    formatDateTime: function (d) {
+        return d.getFullYear() + "-" + wtm.addZero(d.getMonth() + 1) + "-" + wtm.addZero(d.getDate()) + " " + wtm.addZero(d.getHours()) + ":" + wtm.addZero(d.getMinutes()) + ":" + wtm.addZero(d.getSeconds()) + "." + wtm.addTwoZeros(d.getMilliseconds());
     },
     
     start: function() {

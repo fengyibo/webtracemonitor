@@ -27,7 +27,7 @@ namespace WebTraceMonitor.Classes
                 Category = category,
                 ProcessId = Process.GetCurrentProcess().Id,
                 ThreadId = Thread.CurrentThread.ManagedThreadId,
-                Timestamp = DateTime.UtcNow.ToString("dd-MM-yyyy HH:mm:ss.fff"),
+                Timestamp = DateTime.UtcNow, 
                 Machine = Environment.MachineName
             };
 
