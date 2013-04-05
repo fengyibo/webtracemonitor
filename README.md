@@ -1,5 +1,8 @@
 # Web Trace Monitor
 
+![Alt text](./doc/Screenshot.png)
+
+
 ## Introduction
 
 Web Trace Monitor is an open-source web application that can be installed on Windows Azure Websites, Windows Azure WebRoles or any other Windows Server running IIS and ASP.NET 4.5. 
@@ -45,4 +48,5 @@ The deployment is started automatically and after it has finished you should be 
 [SignalR]:http://signalr.net/
 [SlickGrid]:https://github.com/mleibman/SlickGrid/
 [Demo]:http://webtracemonitordemo.cloudapp.net/
+[Screenshot]:https://github.com/berndku/webtracemonitor/blob/master/doc/Screenshot.png
 
