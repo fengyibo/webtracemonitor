@@ -1,5 +1,7 @@
 # Web Trace Monitor
 
+Viewing realtime trace messages in modern browsers.
+
 ![Alt text](./doc/Screenshot.png)
 
 
@@ -36,17 +38,61 @@ The deployment is started automatically and after it has finished you should be 
 + Clone the repo
 + Open the solution with Visual Studio 2012
 + Publish the project WebTraceMonitor.Azure to your Windows Azure subscription
++ Make sure, your role is configured with exactly 1 instance. Multiple instances are not supported at the moment.
 
 ### Other IIS
 
 + Clone the repo
 + Open the solution with Visual Studio 2012
-+ Publish the WebTraceMonitor web project e.g. with WebDeploy on  local IIS server.
++ Publish the WebTraceMonitor web project e.g. with WebDeploy on  local IIS server. NOTE: web farms are not supported at the moment.
+
+## Creating trace messages
+
+Today there are two ways to send trace messages to Web Trace Monitor: REST API and System Diagnostics Trace Listener.
+
+### REST API
+
+Each instance of Web Trace Listener creates a REST endpoint at /api/trace. 
+
+Example Http request header and body:
+
+    POST
+    http://webtracemonitordemo.azurewebsites.net/api/trace HTTP/1.1
+    Content-type: application/json
+    Host: webtracemonitordemo.azurewebsites.net
+    Content-Length: 225
+  
+    { "Message": "Object reference not set to an instance of an object", "Level": "Error", "TimeStamp": "2013-04-05 17:53:00.000", "Machine":"R2D2", "Category":"Errors", "Source":"MyApplication", "ProcessId":765, "ThreadId":345 }
+    
+
+### System Diagnostics Trace Listener
+
+.NET programmers can use the System Diagnostics Trace Listener that effectively wraps the REST API.
+
+The _WebTraceMonitor.SystemDiagnosticsTraceListener.dll_ might be obtained by downloading and building the solution. 
+
+To use it in your own project, reference the dll and add the following configuration to your app.config / web.config: 
+
+    <system.diagnostics>
+        <trace>
+          <listeners>
+            <add type="WebTraceMonitor.SystemDiagnosticsTraceListener.WebMonitorTraceListener, WebTraceMonitor.SystemDiagnosticsTraceListener" name="WebTraceMonitor" host="yoursite.azurewebsites.net" port="80">
+              <filter type="" />
+            </add>
+          </listeners>
+        </trace>
+    </system.diagnostics>
+
+Don´t forget to set _host_ and _port_ to your instance of Web Trace Monitor. 
+
+Now all calls to _System.Diagnostics_ trace methods like _Trace.TraceInformation_, _Trace.TraceError_ etc. are sent to the Web Trace Monitor.
+
+IMPORTANT NOTE: the trace listener is doing an asynchronous web request on each single trace-method call. If the remote server is not available, the trace message will be lost. Heavy tracing will result in heavy network activity. For these reasons it is not recommended to use this trace listener in production. 
+
 
 
 
 [SignalR]:http://signalr.net/
 [SlickGrid]:https://github.com/mleibman/SlickGrid/
 [Demo]:http://webtracemonitordemo.cloudapp.net/
-[Screenshot]:https://github.com/berndku/webtracemonitor/blob/master/doc/Screenshot.png
 
