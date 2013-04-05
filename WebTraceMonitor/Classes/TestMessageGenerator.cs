@@ -22,7 +22,7 @@ namespace WebTraceMonitor.Classes
 
                 Thread.Sleep(3000);
 
-                Trace.TraceInformation("You are seeing auto-generated test messages, which are generated every 3 seconds for demo purposes.");
+                SignalRTracer.Send(string.Empty, SignalRTracer.LevelInformation, "You are seeing auto-generated test messages, which are generated every 3 seconds for demo purposes.", string.Empty) ;
 
                 const string warning = @"Event code: 3008 
 Event message: A configuration error has occurred. 
@@ -95,7 +95,7 @@ Thread information:
  
 Custom event details: 
 ";
-                Trace.TraceWarning(warning);
+                SignalRTracer.Send(string.Empty, SignalRTracer.LevelWarning, warning, string.Empty);
 
                 string verbose = @"Fault bucket -835936736, type 5
 Event Name: Office11ShipAssert
@@ -126,7 +126,8 @@ Rechecking for solution: 0
 Report Id: 3d6f7244-9c73-11e2-bede-e3079fbde490
 Report Status: 0
 Hashed bucket: 328b7c8dcc84b1f1685b7bda847fd531";
-                Trace.WriteLine(verbose);
+                SignalRTracer.Send(string.Empty, SignalRTracer.LevelVerbose, verbose, string.Empty);
+
                 const string error = @"An unhandled exception occurred and the process was terminated.
 
 Application ID: /LM/W3SVC/10/ROOT
@@ -148,7 +149,7 @@ StackTrace:    at Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.get_Curr
    at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
    at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
    at System.Threading.ThreadHelper.ThreadStart()";
-                Trace.TraceError(error);
+                SignalRTracer.Send(string.Empty, SignalRTracer.LevelError, error, string.Empty);
             }
         }
     }
