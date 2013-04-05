@@ -48,7 +48,7 @@ The deployment is started automatically and after it has finished you should be 
 
 + Clone the repo
 + Open the solution with Visual Studio 2012
-+ Publish the WebTraceMonitor web project e.g. with WebDeploy on  local IIS server. NOTE: web farms are not supported at the moment.
++ Publish the WebTraceMonitor web project e.g. with WebDeploy to IIS server. NOTE: web farms are not supported at the moment.
 
 ## Creating trace messages
 
