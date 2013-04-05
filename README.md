@@ -89,14 +89,15 @@ To use it in your own project, reference the dll and add the following configura
 
 Don´t forget to set _host_ and _port_ to your instance of Web Trace Monitor. 
 
-If the listener is used within an Azure Role, configuration of _host_ and _port_ can be done in ServiceConfiguration and changed during runtime in the Azure portal. Supported keys:
+If the listener is used within an Azure Role, it is also necessary to add the following settings to service configuration in addition to the registration of the listener in app/web config:
 
-    WebTraceMonitor.Host
-    WebTraceMonitor.Port
-    WebTraceMonitor.Enabled
+    <ConfigurationSettings>
+      <Setting name="WebTraceMonitor.Host" value="mysite.azurewebsites.net" />
+      <Setting name="WebTraceMonitor.Port" value="80" />
+      <Setting name="WebTraceMonitor.Enabled" value="true" />
+    </ConfigurationSettings>
 
-With _WebTraceMonitor.Enabled_ the transmission of traces can be turned on and off. Note that the default is off, so this key must be present to use the listener in an Azure role.
-
+This allows to change the values during runtime without re-deploying. If _host_ and _port_ are configured in app/web.config and service configuration, the service configuration has higher precedence.
 
 
 Now all calls to _System.Diagnostics_ trace methods like _Trace.TraceInformation_, _Trace.TraceError_ etc. are sent to the Web Trace Monitor.
