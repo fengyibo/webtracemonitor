@@ -66,21 +66,30 @@ Example Http request header and body:
     Host: webtracemonitordemo.azurewebsites.net
     Content-Length: 225
   
-    { "Message": "Object reference not set to an instance of an object", "Level": "Error", "TimeStamp": "2013-04-05 17:53:00.000", "Machine":"R2D2", "Category":"Errors", "Source":"MyApplication", "ProcessId":765, "ThreadId":345 }
+    { "Message": "Object reference not set to an instance of an object", 
+      "Level": "Error", 
+      "TimeStamp": "2013-04-05 17:53:00.000", 
+      "Machine":"R2D2", 
+      "Category":"Errors", 
+      "Source":"MyApplication", 
+      "ProcessId":765, 
+      "ThreadId":345 }
     
 
 ### System Diagnostics Trace Listener
 
 .NET programmers can use the System Diagnostics Trace Listener that effectively wraps the REST API.
 
-The _WebTraceMonitor.SystemDiagnosticsTraceListener.dll_ might be obtained by downloading and building the solution. 
+The _WebTraceMonitor.SystemDiagnosticsTraceListener.dll_ can be downloaded from [here].
 
 To use it in your own project, reference the dll and add the following configuration to your app.config / web.config: 
 
     <system.diagnostics>
         <trace>
           <listeners>
-            <add type="WebTraceMonitor.SystemDiagnosticsTraceListener.WebMonitorTraceListener, WebTraceMonitor.SystemDiagnosticsTraceListener" name="WebTraceMonitor" host="yoursite.azurewebsites.net" port="80">
+            <add type="WebTraceMonitor.SystemDiagnosticsTraceListener.WebMonitorTraceListener, 
+                WebTraceMonitor.SystemDiagnosticsTraceListener" 
+                name="WebTraceMonitor" host="yoursite.azurewebsites.net" port="80">
               <filter type="" />
             </add>
           </listeners>
@@ -121,4 +130,4 @@ If you have any feedback, questions or ideas for enhancements, please use the Gi
 [SlickGrid]:https://github.com/mleibman/SlickGrid/
 [Demo]:http://webtracemonitordemo.cloudapp.net/
 [Apache License 2.0 (Apache)]:http://www.apache.org/licenses/LICENSE-2.0
-
+[here]:https://github.com/berndku/webtracemonitor/blob/master/deploy/SystemDiagnosticsTraceListener/SystemDiagnosticsTraceListener.zip
