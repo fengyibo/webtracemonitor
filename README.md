@@ -93,9 +93,11 @@ Now all calls to _System.Diagnostics_ trace methods like _Trace.TraceInformation
 
 IMPORTANT NOTE: the trace listener is doing an asynchronous web request on each single trace-method call. If the remote server is not available, the trace message will be lost. Heavy tracing will result in heavy network activity. For these reasons it is not recommended to use this trace listener in production. 
 
-## Contributions
+## Contributions / Feedback
 
-If you find Web Trace Monitor useful and create other native Wrappers for the REST API, I would be happy to receive your PULL requests.
+If you find Web Trace Monitor useful and create other native Wrappers for the REST API, submit them as PULL requests. Good candidates would be listeners/appenders for log4net, nlog, log4j and other common logging frameworks.
+
+If you have any feedback or feature requests, please use the Issue list on GitHub.
 
 ## License
 
