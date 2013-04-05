@@ -97,7 +97,7 @@ IMPORTANT NOTE: the trace listener is doing an asynchronous web request on each 
 
 If you find Web Trace Monitor useful and create other native Wrappers for the REST API, submit them as PULL requests. Good candidates would be listeners/appenders for log4net, nlog, log4j and other common logging frameworks.
 
-If you have any feedback or feature requests, please use the Issue list on GitHub.
+If you have any feedback, questions or ideas for enhancements, please use the GitHub issues.
 
 ## License
 
