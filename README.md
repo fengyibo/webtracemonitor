@@ -66,7 +66,14 @@ Example Http request header and body:
     Host: webtracemonitordemo.azurewebsites.net
     Content-Length: 225
   
-    { "Message": "Object reference not set to an instance of an object", "Level": "Error", "TimeStamp": "2013-04-05 17:53:00.000", "Machine":"R2D2", "Category":"Errors", "Source":"MyApplication", "ProcessId":765, "ThreadId":345 }
+    { "Message": "Object reference not set to an instance of an object", 
+      "Level": "Error", 
+      "TimeStamp": "2013-04-05 17:53:00.000", 
+      "Machine":"R2D2", 
+      "Category":"Errors", 
+      "Source":"MyApplication", 
+      "ProcessId":765, 
+      "ThreadId":345 }
     
 
 ### System Diagnostics Trace Listener
@@ -80,7 +87,9 @@ To use it in your own project, reference the dll and add the following configura
     <system.diagnostics>
         <trace>
           <listeners>
-            <add type="WebTraceMonitor.SystemDiagnosticsTraceListener.WebMonitorTraceListener, WebTraceMonitor.SystemDiagnosticsTraceListener" name="WebTraceMonitor" host="yoursite.azurewebsites.net" port="80">
+            <add type="WebTraceMonitor.SystemDiagnosticsTraceListener.WebMonitorTraceListener, 
+                WebTraceMonitor.SystemDiagnosticsTraceListener" 
+                name="WebTraceMonitor" host="yoursite.azurewebsites.net" port="80">
               <filter type="" />
             </add>
           </listeners>
