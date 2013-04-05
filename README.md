@@ -56,7 +56,7 @@ Today there are two ways to send trace messages to Web Trace Monitor: REST API a
 
 ### REST API
 
-Each instance of Web Trace Listener creates a REST endpoint at /api/trace. 
+Each instance of Web Trace Monitor creates a public REST endpoint at /api/trace. 
 
 Example Http request header and body:
 
