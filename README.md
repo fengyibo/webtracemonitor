@@ -73,7 +73,7 @@ Example Http request header and body:
 
 .NET programmers can use the System Diagnostics Trace Listener that effectively wraps the REST API.
 
-The _WebTraceMonitor.SystemDiagnosticsTraceListener.dll_ might be obtained by downloading and building the solution. 
+The _WebTraceMonitor.SystemDiagnosticsTraceListener.dll_ can be downloaded from [here].
 
 To use it in your own project, reference the dll and add the following configuration to your app.config / web.config: 
 
@@ -121,4 +121,4 @@ If you have any feedback, questions or ideas for enhancements, please use the Gi
 [SlickGrid]:https://github.com/mleibman/SlickGrid/
 [Demo]:http://webtracemonitordemo.cloudapp.net/
 [Apache License 2.0 (Apache)]:http://www.apache.org/licenses/LICENSE-2.0
-
+[here]:https://github.com/berndku/webtracemonitor/blob/master/deploy/SystemDiagnosticsTraceListener/SystemDiagnosticsTraceListener.zip
