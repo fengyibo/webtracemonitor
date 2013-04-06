@@ -15,5 +15,6 @@ namespace WebTraceMonitor.Classes
         public string Message { get; set; }
         public int ProcessId { get; set; }
         public int ThreadId { get; set; }
+        public int EventId { get; set; }
     }
 }

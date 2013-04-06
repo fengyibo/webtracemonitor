@@ -47,7 +47,8 @@
             { id: "source", name: "Source", field: "Source", width: 120, selectable: true, cssClass: "cell-text" },
             { id: "process", name: "Process", field: "ProcessId", width: 120, selectable: true, cssClass: "cell-text" },
             { id: "thread", name: "Thread", field: "ThreadId", width: 120, selectable: true, cssClass: "cell-text" },
-            { id: "text", name: "Text", field: "Message", width: 800, selectable: true, cssClass: "cell-text" }
+            { id: "text", name: "Text", field: "Message", width: 800, selectable: true, cssClass: "cell-text" },
+            { id: "eventid", name: "Event Id", field: "EventId", width: 120, selectable: true, cssClass: "cell-text" }
         ];
         
         wtm.grid = new Slick.Grid("#dataGrid", wtm.filteredData, [columns[0], columns[1], columns[2], columns[3], columns[8]], options);

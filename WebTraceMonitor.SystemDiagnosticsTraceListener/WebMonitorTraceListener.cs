@@ -49,6 +49,7 @@ namespace WebTraceMonitor.SystemDiagnosticsTraceListener
             public string Message { get; set; }
             public int ProcessId { get; set; }
             public int ThreadId { get; set; }
+            public int EventId { get; set; }
         }
 
         private class HttpWebRequestAsyncState
@@ -177,7 +178,7 @@ namespace WebTraceMonitor.SystemDiagnosticsTraceListener
                     builder.Append(" : Callstack:");
                     builder.Append(eventCache.Callstack);
                 }
-                SendTrace(source, eventType, builder.ToString(), DefaultCategory);
+                SendTrace(source, eventType, builder.ToString(), DefaultCategory, id);
             }
         }
 
@@ -222,7 +223,7 @@ namespace WebTraceMonitor.SystemDiagnosticsTraceListener
                     builder.Append(" : Callstack:");
                     builder.Append(eventCache.Callstack);
                 }
-                SendTrace(source, eventType, builder.ToString(), DefaultCategory);
+                SendTrace(source, eventType, builder.ToString(), DefaultCategory, id);
             }
         }
 
@@ -233,11 +234,11 @@ namespace WebTraceMonitor.SystemDiagnosticsTraceListener
             {
                 if ((eventCache != null) && ((base.TraceOutputOptions & TraceOptions.Callstack) != TraceOptions.None))
                 {
-                    SendTrace(source, eventType, " : CallStack:" + eventCache.Callstack, DefaultCategory);
+                    SendTrace(source, eventType, " : CallStack:" + eventCache.Callstack, DefaultCategory, id);
                 }
                 else
                 {
-                    SendTrace(source, eventType, string.Empty, DefaultCategory);
+                    SendTrace(source, eventType, string.Empty, DefaultCategory, id);
                 }
             }
         }
@@ -256,7 +257,7 @@ namespace WebTraceMonitor.SystemDiagnosticsTraceListener
                     builder.Append(" : CallStack");
                     builder.Append(eventCache.Callstack);
                 }
-                SendTrace(source, eventType, builder.ToString(), DefaultCategory);
+                SendTrace(source, eventType, builder.ToString(), DefaultCategory, id);
             }
         }
 
@@ -273,7 +274,7 @@ namespace WebTraceMonitor.SystemDiagnosticsTraceListener
                 }
                 else
                 {
-                    SendTrace(source, eventType, message, DefaultCategory);
+                    SendTrace(source, eventType, message, DefaultCategory, id);
                 }
             }
         }
@@ -293,7 +294,7 @@ namespace WebTraceMonitor.SystemDiagnosticsTraceListener
                 builder.Append(" : CallStack");
                 builder.Append(eventCache.Callstack);
             }
-            SendTrace(source, TraceEventType.Information, builder.ToString(), DefaultCategory);
+            SendTrace(source, TraceEventType.Information, builder.ToString(), DefaultCategory, id);
         }
 
         public sealed override void Write(string message)
@@ -316,11 +317,11 @@ namespace WebTraceMonitor.SystemDiagnosticsTraceListener
             base.WriteLine(message, category);
         }
 
-        protected virtual void SendTrace(string source, TraceEventType eventType, string message, string category)
+        protected virtual void SendTrace(string source, TraceEventType eventType, string message, string category, int id = 0)
         {
             if (enabled)
             {
-                var msg = CreateTraceMsg(source, eventType, message, category);
+                var msg = CreateTraceMsg(source, eventType, message, category, id);
 
                 try
                 {
@@ -348,7 +349,7 @@ namespace WebTraceMonitor.SystemDiagnosticsTraceListener
             }
         }
 
-        protected TraceMessage CreateTraceMsg(string source, TraceEventType eventType, string message, string category)
+        protected TraceMessage CreateTraceMsg(string source, TraceEventType eventType, string message, string category, int id)
         {
             var msg = new TraceMessage()
                                    {
@@ -359,7 +360,8 @@ namespace WebTraceMonitor.SystemDiagnosticsTraceListener
                                        ProcessId = _processId,
                                        ThreadId = Thread.CurrentThread.ManagedThreadId,
                                        Timestamp = DateTime.UtcNow,
-                                       Machine = _machineName
+                                       Machine = _machineName,
+                                       EventId = id
                                    };
             return msg;
         }
