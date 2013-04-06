@@ -56,12 +56,12 @@ Today there are two ways to send trace messages to Web Trace Monitor: REST API a
 
 ### REST API
 
-Each instance of Web Trace Monitor creates a public REST endpoint at /api/trace. 
+Each instance of Web Trace Monitor creates a public REST endpoint at `/api/v1/trace`. 
 
 Example Http request header and body:
 
     POST
-    http://webtracemonitordemo.azurewebsites.net/api/trace HTTP/1.1
+    http://webtracemonitordemo.azurewebsites.net/api/v1/trace HTTP/1.1
     Content-type: application/json
     Host: webtracemonitordemo.azurewebsites.net
     Content-Length: 225
@@ -80,7 +80,7 @@ Example Http request header and body:
 
 .NET programmers can use the System Diagnostics Trace Listener that effectively wraps the REST API.
 
-The _WebTraceMonitor.SystemDiagnosticsTraceListener.dll_ can be downloaded from [here].
+The `WebTraceMonitor.SystemDiagnosticsTraceListener.dll` can be downloaded from [here].
 
 To use it in your own project, reference the dll and add the following configuration to your app.config / web.config: 
 
@@ -96,7 +96,7 @@ To use it in your own project, reference the dll and add the following configura
         </trace>
     </system.diagnostics>
 
-Don´t forget to set _host_ and _port_ to your instance of Web Trace Monitor. 
+Don´t forget to set `host` and `port` to your instance of Web Trace Monitor. 
 
 If the listener is used within an Azure Role, it is also necessary to add the following settings to service configuration in addition to the registration of the listener in app/web config:
 
@@ -106,10 +106,10 @@ If the listener is used within an Azure Role, it is also necessary to add the fo
       <Setting name="WebTraceMonitor.Enabled" value="true" />
     </ConfigurationSettings>
 
-This allows to change the values during runtime without re-deploying. If _host_ and _port_ are configured in app/web.config and service configuration, the service configuration has higher precedence.
+This allows to change the values during runtime without re-deploying. If `host` and `port` are configured in app/web.config and service configuration, the service configuration has higher precedence.
 
 
-Now all calls to _System.Diagnostics_ trace methods like _Trace.TraceInformation_, _Trace.TraceError_ etc. are sent to the Web Trace Monitor.
+Now all calls to `System.Diagnostics` trace methods like `Trace.TraceInformation`, `Trace.TraceError` etc. are sent to the Web Trace Monitor.
 
 IMPORTANT NOTE: the trace listener is doing an asynchronous web request on each single trace-method call. If the remote server is not available, the trace message will be lost. Heavy tracing will result in heavy network activity. For these reasons it is not recommended to use this trace listener in production. 
 
