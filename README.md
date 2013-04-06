@@ -7,7 +7,7 @@ Viewing realtime trace messages in modern browsers.
 
 ## Introduction
 
-Web Trace Monitor is an open-source web application with similar functionality as [DebugView]. It can be installed on Windows Azure Websites, Windows Azure WebRoles or any other Windows Server running IIS and ASP.NET 4.5. 
+Web Trace Monitor is an open-source web application inspired by [DebugView] and Windows Event Viewer. It can be installed on Windows Azure Websites, Windows Azure WebRoles or any other Windows Server running IIS and ASP.NET 4.5. 
 
 It provides an unsecured, public REST endpoint, where trace messages can be posted to. For .NET developers a System.Diagnostics compatible trace listener exists for convenience. 
 
