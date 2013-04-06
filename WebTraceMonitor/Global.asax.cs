@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -23,6 +24,10 @@ namespace WebTraceMonitor
     {
         protected void Application_Start()
         {
+            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerSelector),
+                                               new VersionControllerSelector(GlobalConfiguration.Configuration));
+
+
             AreaRegistration.RegisterAllAreas();
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

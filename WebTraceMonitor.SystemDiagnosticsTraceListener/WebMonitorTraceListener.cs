@@ -26,7 +26,7 @@ namespace WebTraceMonitor.SystemDiagnosticsTraceListener
         private const string LevelVerbose = "Verbose";
         private const string LevelError = "Error";
         private const string LevelWarning = "Warning";
-        private const string Path = "api/trace";
+        private const string Path = "api/v1/trace";
         private const int DefaultPort = 80;
         private string uri = string.Empty;
         private string azureHost;
@@ -35,6 +35,9 @@ namespace WebTraceMonitor.SystemDiagnosticsTraceListener
         private const string ConfigKeyAzureHost = "WebTraceMonitor.Host";
         private const string ConfigKeyAzurePort = "WebTraceMonitor.Port";
         private const string ConfigKeyAzureEnabled = "WebTraceMonitor.Enabled";
+        private const string ContentType = "application/json; charset=utf-8";
+        private const string Verb = "POST";
+        private const int RequestTimeout = 5000;
 
         public class TraceMessage
         {
@@ -322,14 +325,14 @@ namespace WebTraceMonitor.SystemDiagnosticsTraceListener
                 try
                 {
                     var request = (HttpWebRequest) HttpWebRequest.Create(Uri);
-                    request.ContentType = "application/json; charset=utf-8";
-                    request.Method = "POST";
+                    request.ContentType = WebMonitorTraceListener.ContentType;
+                    request.Method = WebMonitorTraceListener.Verb;
 
                     JavaScriptSerializer serializer = new JavaScriptSerializer();
                     serializer.Serialize(msg);
                     byte[] requestBytes = Encoding.UTF8.GetBytes(serializer.Serialize(msg));
                     request.ContentLength = requestBytes.Length;
-                    request.Timeout = 5000;
+                    request.Timeout = WebMonitorTraceListener.RequestTimeout;
 
                     var requestStream = request.BeginGetRequestStream(BeginGetRequestStreamCallback,
                                                                       new HttpWebRequestAsyncState()

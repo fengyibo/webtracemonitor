@@ -206,8 +206,9 @@
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="Classes\SignalRTracer.cs" />
     <Compile Include="Classes\DoSProtection.cs" />
+    <Compile Include="Classes\VersionControllerSelector.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TraceController.cs" />
+    <Compile Include="Controllers\Version1\TraceController.cs" />
     <Compile Include="Classes\ConnectionManager.cs" />
     <Compile Include="Classes\TraceMessage.cs" />
     <Compile Include="Global.asax.cs">

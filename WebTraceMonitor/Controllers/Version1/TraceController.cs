@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using WebTraceMonitor.Classes;
 
-namespace WebTraceMonitor.Controllers
+namespace WebTraceMonitor.Controllers.Version1
 {
     public class TraceController : ApiController
     {

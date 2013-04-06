@@ -11,7 +11,7 @@ namespace WebTraceMonitor.App_Start
         {
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "api/v{version}/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
 
