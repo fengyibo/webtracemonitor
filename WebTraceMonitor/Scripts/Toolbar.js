@@ -31,7 +31,9 @@
     init: function () {
         $("#help-icon").on("click", aboutDialog.show);
         $("#btnScroll").on("click", wtm.toggleAutoscroll);
-
+        $("#btnSave").on("click", wtm.savefile);
+        $("#btnSave").button({ icons: { primary: "menue-icon-save" } });
+        
         $("#btnScroll").button({ icons: { primary: "menue-icon-pause" } });
         $("#btnConnection").button({ icons: { primary: "menue-icon-stop" } }).click(function (event) {
             if ($("#btnConnection").button("option", "label") == "Connect" ||

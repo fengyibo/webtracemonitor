@@ -309,6 +309,7 @@
     <Content Include="Images\question_big.png" />
     <Content Include="Images\question_middle.png" />
     <Content Include="Images\question_small.png" />
+    <Content Include="Images\Save.png" />
     <Content Include="Images\start-bw-16.png" />
     <Content Include="Images\status.png" />
     <Content Include="Images\status_away.png" />

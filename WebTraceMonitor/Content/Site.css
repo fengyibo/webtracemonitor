@@ -220,6 +220,10 @@ div#body {
     background-image: url('../Images/pause-bw-16.png') !important;
 }
 
+.menue-icon-save {
+    background-image: url('../Images/Save.png') !important;
+}
+
 .menu-icon-selected {
     background-color: #81caee !important;
 }

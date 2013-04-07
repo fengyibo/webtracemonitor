@@ -226,6 +226,91 @@
             wtm.doAutoScrollIfEnabled();
         }
        window.setTimeout(function () { wtm.updateGridView(); }, 500);
+    },
+    
+    rpad: function(str, padString, length) {
+        while (str.length < length)
+            str = str + padString;
+        return str;
+    },
+    
+    getMaxWidth: function(field) {
+        var result = 0;
+        var min = field.length;
+        for (var k = 0; k < wtm.data.length; k++) {
+            if (wtm.data[k][field].length > result) {
+                result = wtm.data[k][field].length;
+            }
+        }
+        return (result > min ? result : min)+2;
+    },
+    
+    savefile: function () {
+        
+        var w = window.frames.w;
+        if (!w) {
+            w = document.createElement('iframe');
+            w.id = 'w';
+            w.style.display = 'none';
+            document.body.insertBefore(w, null);
+            w = window.frames.w;
+            if (!w) {
+                w = window.open('', '_temp', 'width=100,height=100');
+                if (!w) {
+                    window.alert('Sorry, the file could not be created.');
+                    return false;
+                }
+            }
+        }
+        
+        var d = w.document;
+        if (!d) {
+            alert('Sorry, Not supported in current browser. Try IE.');
+            return;
+        }
+        d.open('text/plain', 'replace');
+        d.charset = "utf-8";
+        d.write("<pre>");
+
+        var maxWidthMachine = wtm.getMaxWidth("Machine");
+        var maxWidthSource = wtm.getMaxWidth("Source");
+        var maxWidthCategory = wtm.getMaxWidth("Category");
+
+        // Write Header
+        d.write("Position  ");
+        d.write(wtm.rpad("Level", " ", 13));
+        d.write(wtm.rpad("Timestamp", " ", 25));
+        d.write(wtm.rpad("Machine", " ", maxWidthMachine));
+        d.write(wtm.rpad("Source", " ", maxWidthSource));
+        d.write(wtm.rpad("Category", " ", maxWidthCategory));
+        d.write(wtm.rpad("ThreadId", " ", 10));
+        d.write(wtm.rpad("ProcessId", " ", 10));
+        d.write(wtm.rpad("EventId", " ", 10));
+        d.write("Text");
+        d.write("\r\n");
+
+        // Write Data
+        for (var k = 0; k < wtm.data.length; k++) {
+            d.write(wtm.data[k].id);
+            d.write("  ");
+            d.write(wtm.rpad(wtm.data[k].Level, " ", 13));
+            d.write(wtm.data[k].Timestamp);
+            d.write("  ");
+            d.write(wtm.rpad(wtm.data[k].Machine, " ", maxWidthMachine));
+            d.write(wtm.rpad(wtm.data[k].Source, " ", maxWidthSource));
+            d.write(wtm.rpad(wtm.data[k].Category, " ", maxWidthCategory));
+            d.write(wtm.rpad(wtm.data[k].ThreadId.toString(), " ", 10));
+            d.write(wtm.rpad(wtm.data[k].ProcessId.toString(), " ", 10));
+            d.write(wtm.rpad(wtm.data[k].EventId.toString(), " ", 10));
+            d.write(wtm.data[k].Message);
+            d.write("\r\n");
+        }
+        d.write("<\/pre>");
+        d.close();
+        var ok = d.execCommand('SaveAs', true, 'WebTraceLog.txt');
+        if(ok == false) {
+            alert('Canceled or not supported in current browser.');
+        }
     }
 };
 
