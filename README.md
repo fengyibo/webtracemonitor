@@ -7,7 +7,7 @@ Viewing realtime trace messages in modern browsers.
 
 ## Introduction
 
-Web Trace Monitor is an open-source web application inspired by [DebugView] and Windows Event Viewer. It can be installed on Windows Azure Websites, Windows Azure WebRoles or any other Windows Server running IIS and ASP.NET 4.5. 
+Web Trace Monitor is an open-source, purely html-based, real-time log console similar to [DebugView] or [Chainsaw]. It enables watching real-time traces in most modern browsers without the need for any plugin. The web application can be installed on Windows Azure Websites, Windows Azure WebRoles or any other Windows Server running IIS and ASP.NET 4.5. 
 
 It provides an unsecured, public REST endpoint, where trace messages can be posted to. For .NET developers a System.Diagnostics compatible trace listener exists for convenience. 
 
@@ -15,7 +15,7 @@ Web Trace Monitor uses [SignalR] to forward incoming trace messages to all conne
 
 Data is displayed with the means of the underlying [SlickGrid] and kept entirely in memory of the web browser until cleared. This enables quick filtering by machine or trace level. The usage of virtual Scrolling ensures, that web trace monitor can even deal with hundreds of thousands of trace messages.
 
-The tool is targeted to gain insight into the process flow of complex distributed systems, like a Windows Azure application consisting of multiple roles, during development and testing. 
+The main purpose of the Web Trace Monitor tool is to serve as a public hub for traces from _all_ machines and devices and by displaying them in real-time, providing insight into the flow of a distributed system during development and testing. One example would be a Windows Azure Cloud Service  consisting of multiple roles.
 
 See a [Demo].  
 
@@ -132,3 +132,4 @@ If you have any feedback, questions or ideas for enhancements, please use the Gi
 [Apache License 2.0 (Apache)]:http://www.apache.org/licenses/LICENSE-2.0
 [here]:https://github.com/berndku/webtracemonitor/blob/master/deploy/SystemDiagnosticsTraceListener/SystemDiagnosticsTraceListener.zip
 [DebugView]:http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx
+[Chainsaw]:http://logging.apache.org/chainsaw/index.html
