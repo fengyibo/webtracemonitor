@@ -12,29 +12,76 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTraceMonitor.TestConsole", "TestConsole\WebTraceMonitor.TestConsole.csproj", "{81BDA5E3-07DB-41B2-855D-1C081F8A255F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1F1BE3A3-647B-4C76-91B1-D359D4AC9C0A}"
+	ProjectSection(SolutionItems) = preProject
+		WebTraceMonitor.TestCloudService.WorkerRole\WebTraceMonitor.TestCloudService.WorkerRole.cs = WebTraceMonitor.TestCloudService.WorkerRole\WebTraceMonitor.TestCloudService.WorkerRole.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TraceReceivers", "TraceReceivers", "{25E965F0-B0CC-42F7-869C-76E49DB70D83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTraceMonitor.Core", "WebTraceMonitor.Core\WebTraceMonitor.Core.csproj", "{50BCEB3E-7E65-4285-97D5-D93280BC0AD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTraceMonitor.Receivers.AzureDiagnostics", "WebTraceMonitor.Receivers.AzureDiagnostics\WebTraceMonitor.Receivers.AzureDiagnostics.csproj", "{6E546FAF-6B71-41CC-A2F7-FF29E1AB92CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTraceMonitor.UnitTests", "WebTraceMonitor.UnitTests\WebTraceMonitor.UnitTests.csproj", "{6B34FE08-DEC4-4A35-BA22-EC9EF3305196}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "WebTraceMonitor.TestCloudService", "WebTraceMonitor.TestCloudService\WebTraceMonitor.TestCloudService.ccproj", "{314E5C1D-2E10-4287-9FCD-BC17D191190C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTraceMonitor.TestCloudService.WorkerRole", "WebTraceMonitor.TestCloudService.WorkerRole\WebTraceMonitor.TestCloudService.WorkerRole.csproj", "{CDBAD5BC-8366-4F14-B2DA-B87252C0027A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		DebugTestCloudService|Any CPU = DebugTestCloudService|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{1297A327-66AE-40D3-908E-1B82D9E60A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1297A327-66AE-40D3-908E-1B82D9E60A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1297A327-66AE-40D3-908E-1B82D9E60A9A}.DebugTestCloudService|Any CPU.ActiveCfg = DebugTestCloudService|Any CPU
 		{1297A327-66AE-40D3-908E-1B82D9E60A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1297A327-66AE-40D3-908E-1B82D9E60A9A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6961F6FC-D2D7-4E20-A5B3-339057D93056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6961F6FC-D2D7-4E20-A5B3-339057D93056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6961F6FC-D2D7-4E20-A5B3-339057D93056}.DebugTestCloudService|Any CPU.ActiveCfg = DebugTestCloudService|Any CPU
 		{6961F6FC-D2D7-4E20-A5B3-339057D93056}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6961F6FC-D2D7-4E20-A5B3-339057D93056}.Release|Any CPU.Build.0 = Release|Any CPU
 		{848A4EC1-5492-44FC-91A0-691C74911D27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{848A4EC1-5492-44FC-91A0-691C74911D27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{848A4EC1-5492-44FC-91A0-691C74911D27}.DebugTestCloudService|Any CPU.ActiveCfg = DebugTestCloudService|Any CPU
 		{848A4EC1-5492-44FC-91A0-691C74911D27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{848A4EC1-5492-44FC-91A0-691C74911D27}.Release|Any CPU.Build.0 = Release|Any CPU
 		{81BDA5E3-07DB-41B2-855D-1C081F8A255F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{81BDA5E3-07DB-41B2-855D-1C081F8A255F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81BDA5E3-07DB-41B2-855D-1C081F8A255F}.DebugTestCloudService|Any CPU.ActiveCfg = DebugTestCloudService|Any CPU
 		{81BDA5E3-07DB-41B2-855D-1C081F8A255F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81BDA5E3-07DB-41B2-855D-1C081F8A255F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50BCEB3E-7E65-4285-97D5-D93280BC0AD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50BCEB3E-7E65-4285-97D5-D93280BC0AD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50BCEB3E-7E65-4285-97D5-D93280BC0AD0}.DebugTestCloudService|Any CPU.ActiveCfg = DebugTestCloudService|Any CPU
+		{50BCEB3E-7E65-4285-97D5-D93280BC0AD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50BCEB3E-7E65-4285-97D5-D93280BC0AD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E546FAF-6B71-41CC-A2F7-FF29E1AB92CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E546FAF-6B71-41CC-A2F7-FF29E1AB92CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E546FAF-6B71-41CC-A2F7-FF29E1AB92CB}.DebugTestCloudService|Any CPU.ActiveCfg = DebugTestCloudService|Any CPU
+		{6E546FAF-6B71-41CC-A2F7-FF29E1AB92CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E546FAF-6B71-41CC-A2F7-FF29E1AB92CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B34FE08-DEC4-4A35-BA22-EC9EF3305196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B34FE08-DEC4-4A35-BA22-EC9EF3305196}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B34FE08-DEC4-4A35-BA22-EC9EF3305196}.DebugTestCloudService|Any CPU.ActiveCfg = DebugTestCloudService|Any CPU
+		{6B34FE08-DEC4-4A35-BA22-EC9EF3305196}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B34FE08-DEC4-4A35-BA22-EC9EF3305196}.Release|Any CPU.Build.0 = Release|Any CPU
+		{314E5C1D-2E10-4287-9FCD-BC17D191190C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{314E5C1D-2E10-4287-9FCD-BC17D191190C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{314E5C1D-2E10-4287-9FCD-BC17D191190C}.DebugTestCloudService|Any CPU.ActiveCfg = DebugTestCloudService|Any CPU
+		{314E5C1D-2E10-4287-9FCD-BC17D191190C}.DebugTestCloudService|Any CPU.Build.0 = DebugTestCloudService|Any CPU
+		{314E5C1D-2E10-4287-9FCD-BC17D191190C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{314E5C1D-2E10-4287-9FCD-BC17D191190C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDBAD5BC-8366-4F14-B2DA-B87252C0027A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDBAD5BC-8366-4F14-B2DA-B87252C0027A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDBAD5BC-8366-4F14-B2DA-B87252C0027A}.DebugTestCloudService|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDBAD5BC-8366-4F14-B2DA-B87252C0027A}.DebugTestCloudService|Any CPU.Build.0 = Debug|Any CPU
+		{CDBAD5BC-8366-4F14-B2DA-B87252C0027A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDBAD5BC-8366-4F14-B2DA-B87252C0027A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,5 +89,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{848A4EC1-5492-44FC-91A0-691C74911D27} = {C4E719EB-5D2D-4A00-B8A2-EDCABED2220D}
 		{81BDA5E3-07DB-41B2-855D-1C081F8A255F} = {1F1BE3A3-647B-4C76-91B1-D359D4AC9C0A}
+		{6B34FE08-DEC4-4A35-BA22-EC9EF3305196} = {1F1BE3A3-647B-4C76-91B1-D359D4AC9C0A}
+		{314E5C1D-2E10-4287-9FCD-BC17D191190C} = {1F1BE3A3-647B-4C76-91B1-D359D4AC9C0A}
+		{6E546FAF-6B71-41CC-A2F7-FF29E1AB92CB} = {25E965F0-B0CC-42F7-869C-76E49DB70D83}
 	EndGlobalSection
 EndGlobal

@@ -5,13 +5,13 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>1.8</ProductVersion>
-    <ProjectGuid>1297a327-66ae-40d3-908e-1b82d9e60a9a</ProjectGuid>
+    <ProjectGuid>314e5c1d-2e10-4287-9fcd-bc17d191190c</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AzureLiveTrace</RootNamespace>
-    <AssemblyName>AzureLiveTrace</AssemblyName>
+    <RootNamespace>WebTraceMonitor.TestCloudService</RootNamespace>
+    <AssemblyName>WebTraceMonitor.TestCloudService</AssemblyName>
     <StartDevelopmentStorage>True</StartDevelopmentStorage>
-    <Name>WebTraceMonitor.Azure</Name>
+    <Name>WebTraceMonitor.TestCloudService</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,24 +33,16 @@
   <!-- Items for the project -->
   <ItemGroup>
     <ServiceDefinition Include="ServiceDefinition.csdef" />
-    <ServiceConfiguration Include="ServiceConfiguration.Demo.cscfg" />
     <ServiceConfiguration Include="ServiceConfiguration.Local.cscfg" />
     <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Profiles" />
-  </ItemGroup>
-  <ItemGroup>
-    <PublishProfile Include="Profiles\LiveTraceProduction.azurePubxml" />
-    <PublishProfile Include="Profiles\Demo Deployment.azurePubxml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WebTraceMonitor\WebTraceMonitor.csproj">
-      <Name>WebTraceMonitor</Name>
-      <Project>{6961f6fc-d2d7-4e20-a5b3-339057d93056}</Project>
+    <ProjectReference Include="..\WebTraceMonitor.TestCloudService.WorkerRole\WebTraceMonitor.TestCloudService.WorkerRole.csproj">
+      <Name>WebTraceMonitor.TestCloudService.WorkerRole</Name>
+      <Project>{cdbad5bc-8366-4f14-b2da-b87252c0027a}</Project>
       <Private>True</Private>
-      <RoleType>Web</RoleType>
-      <RoleName>WebTraceMonitor</RoleName>
+      <RoleType>Worker</RoleType>
+      <RoleName>WebTraceMonitor.TestCloudService.WorkerRole</RoleName>
       <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
     </ProjectReference>
   </ItemGroup>

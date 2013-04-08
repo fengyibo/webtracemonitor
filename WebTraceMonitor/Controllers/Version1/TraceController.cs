@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using WebTraceMonitor.Classes;
+using WebTraceMonitor.Core;
 
 namespace WebTraceMonitor.Controllers.Version1
 {

@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Script.Serialization;
 using Microsoft.AspNet.SignalR;
 using System.Diagnostics;
+using WebTraceMonitor.Core;
 
 namespace WebTraceMonitor.Classes
 {

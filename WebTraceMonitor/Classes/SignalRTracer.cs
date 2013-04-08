@@ -19,7 +19,7 @@ namespace WebTraceMonitor.Classes
         
         public static void Send(string source, string eventType, string message, string category)
         {
-            var msg = new WebTraceMonitor.Classes.TraceMessage()
+            var msg = new WebTraceMonitor.Core.TraceMessage()
             {
                 Message = message,
                 Level = eventType,
