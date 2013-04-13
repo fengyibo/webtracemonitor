@@ -57,12 +57,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WebTraceMonitor.SystemDiagnosticsTraceListener\WebTraceMonitor.SystemDiagnosticsTraceListener.csproj">
-      <Project>{848a4ec1-5492-44fc-91a0-691c74911d27}</Project>
-      <Name>WebTraceMonitor.SystemDiagnosticsTraceListener</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
