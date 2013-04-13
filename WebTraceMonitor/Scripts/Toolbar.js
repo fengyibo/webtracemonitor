@@ -81,7 +81,8 @@
             noneSelectedText: "Machines",
             selectedText: "# Machine(s) selected",
             classes: "ui-button ui-widget ui-state-default toolbar-button",
-            minWidth: "225"
+            minWidth: "225",
+            height: "auto"
         }).bind("multiselectclick", function (event, ui) {
             wtm.machines[ui.text] = ui.checked;
             wtm.machines.all = false;

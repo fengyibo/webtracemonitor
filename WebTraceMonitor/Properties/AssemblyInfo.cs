@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Web Trace Monitor")]
-[assembly: AssemblyCopyright("Copyright ©  2013 by Bernd Kullick")]
+[assembly: AssemblyCopyright("Copyright ©  2013 Bernd Kullick")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
