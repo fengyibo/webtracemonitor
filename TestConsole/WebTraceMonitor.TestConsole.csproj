@@ -57,6 +57,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebTraceMonitor.Core\WebTraceMonitor.Core.csproj">
+      <Project>{50bceb3e-7e65-4285-97d5-d93280bc0ad0}</Project>
+      <Name>WebTraceMonitor.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebTraceMonitor.Receivers.AzureWebsiteLogfiles\WebTraceMonitor.Receivers.AzureWebsiteLogfiles.csproj">
+      <Project>{53e3d8e5-063e-45bd-83d7-8afa42536f11}</Project>
+      <Name>WebTraceMonitor.Receivers.AzureWebsiteLogfiles</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

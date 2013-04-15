@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTraceMonitor.Receivers.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTraceMonitor.UnitTests", "WebTraceMonitor.UnitTests\WebTraceMonitor.UnitTests.csproj", "{6B34FE08-DEC4-4A35-BA22-EC9EF3305196}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTraceMonitor.Receivers.AzureWebsiteLogfiles", "WebTraceMonitor.Receivers.AzureWebsiteLogfiles\WebTraceMonitor.Receivers.AzureWebsiteLogfiles.csproj", "{53E3D8E5-063E-45BD-83D7-8AFA42536F11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,12 @@ Global
 		{6B34FE08-DEC4-4A35-BA22-EC9EF3305196}.DebugTestCloudService|Any CPU.ActiveCfg = DebugTestCloudService|Any CPU
 		{6B34FE08-DEC4-4A35-BA22-EC9EF3305196}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B34FE08-DEC4-4A35-BA22-EC9EF3305196}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53E3D8E5-063E-45BD-83D7-8AFA42536F11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53E3D8E5-063E-45BD-83D7-8AFA42536F11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53E3D8E5-063E-45BD-83D7-8AFA42536F11}.DebugTestCloudService|Any CPU.ActiveCfg = Debug|Any CPU
+		{53E3D8E5-063E-45BD-83D7-8AFA42536F11}.DebugTestCloudService|Any CPU.Build.0 = Debug|Any CPU
+		{53E3D8E5-063E-45BD-83D7-8AFA42536F11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53E3D8E5-063E-45BD-83D7-8AFA42536F11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,5 +80,6 @@ Global
 		{81BDA5E3-07DB-41B2-855D-1C081F8A255F} = {1F1BE3A3-647B-4C76-91B1-D359D4AC9C0A}
 		{6B34FE08-DEC4-4A35-BA22-EC9EF3305196} = {1F1BE3A3-647B-4C76-91B1-D359D4AC9C0A}
 		{6E546FAF-6B71-41CC-A2F7-FF29E1AB92CB} = {25E965F0-B0CC-42F7-869C-76E49DB70D83}
+		{53E3D8E5-063E-45BD-83D7-8AFA42536F11} = {25E965F0-B0CC-42F7-869C-76E49DB70D83}
 	EndGlobalSection
 EndGlobal
