@@ -144,6 +144,7 @@ div#body {
 .cell-text {
     vertical-align: text-bottom;
     line-height: 16px;
+    padding: 0px 0px 0px 0px;
 }
 
 .cell-index {

@@ -16,6 +16,14 @@ namespace WebTraceMonitor.Classes
         public const string LevelVerbose = "Verbose";
         public const string LevelError = "Error";
         public const string LevelWarning = "Warning";
+        private static string[] Machines =
+    {
+        "R2D2XYZABC",
+        "TRON12345",
+        "HAL00000"
+    };
+
+        private static int Seed = 1;
         
         public static void Send(string source, string eventType, string message, string category)
         {
@@ -28,10 +36,17 @@ namespace WebTraceMonitor.Classes
                 ProcessId = Process.GetCurrentProcess().Id,
                 ThreadId = Thread.CurrentThread.ManagedThreadId,
                 Timestamp = DateTime.UtcNow, 
-                Machine = Environment.MachineName
+                Machine = GetRandomMachine()
             };
 
             ConnectionManager.Broadcast(msg);
+        }
+
+        private static string GetRandomMachine()
+        {
+            Random random = new Random(Seed++);
+            int randomIndex = random.Next(0, Machines.Length);
+            return Machines[randomIndex];
         }
     }
 }

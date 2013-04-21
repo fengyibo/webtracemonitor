@@ -8,6 +8,11 @@
     errorCount: 0,
     selectedPosition: 0,
     hasChanged: false,
+    machineColors: {},
+    colorIndex: 0,
+    colors: ["black", "blue", "magenta", "LimeGreen", "brown", "darkcyan", "darkorange", "red", "skyblue", "Steelblue", "SandyBrown", "Orchid"],
+
+
 
     init: function () {
         var positionFormatter = function(row, cell, value, columnDef, dataContext) {
@@ -29,6 +34,12 @@
             }
         };
 
+        var coloredTextFormatter = function(row, cell, value, columnDef, dataContext) {
+            var machineName = dataContext["Machine"];
+            var backgroundColor = wtm.machineColors[machineName];
+            return "<div style='color:" + backgroundColor + "'>" + value + "</div>";
+        };
+
         var options = {
             enableCellNavigation: true,
             forceFitColumns: true,
@@ -41,13 +52,13 @@
         var columns = [
             { id: "no", name: "Position", field: "id", width: 45, selectable: false, cssClass: "ui-state-default cell-text cell-index", formatter: positionFormatter },
             { id: "level", name: "Level", field: "Level", width: 20, formatter: traceLevelIconFormatter, cssClass: "cell-trace-level", selectable: true },
-            { id: "timestamp", name: "Time Stamp", field: "Timestamp", width: 110, selectable: true, cssClass: "cell-text cell-date" },
-            { id: "machine", name: "Machine", field: "Machine", width: 150, selectable: true, cssClass: "cell-text" },
+            { id: "timestamp", name: "Time Stamp", field: "Timestamp", width: 110, selectable: true, cssClass: "cell-text cell-date", formatter: coloredTextFormatter },
+            { id: "machine", name: "Machine", field: "Machine", width: 150, selectable: true, cssClass: "cell-text", formatter: coloredTextFormatter },
             { id: "category", name: "Category", field: "Category", width: 120, selectable: true, cssClass: "cell-text" },
             { id: "source", name: "Source", field: "Source", width: 120, selectable: true, cssClass: "cell-text" },
             { id: "process", name: "Process", field: "ProcessId", width: 120, selectable: true, cssClass: "cell-text" },
             { id: "thread", name: "Thread", field: "ThreadId", width: 120, selectable: true, cssClass: "cell-text" },
-            { id: "text", name: "Text", field: "Message", width: 800, selectable: true, cssClass: "cell-text" },
+            { id: "text", name: "Text", field: "Message", width: 800, selectable: true, cssClass: "cell-text", formatter: coloredTextFormatter },
             { id: "eventid", name: "Event Id", field: "EventId", width: 120, selectable: true, cssClass: "cell-text" }
         ];
         
@@ -178,6 +189,12 @@
             }
             if (wtm.machines[obj.Machine] == undefined) {
                 wtm.machines[obj.Machine] = wtm.machines["all"];
+                wtm.machineColors[obj.Machine] = wtm.colors[wtm.colorIndex];
+                if (wtm.colorIndex == wtm.colors.length - 1) {
+                    wtm.colorIndex = 0;
+                } else {
+                    wtm.colorIndex++;
+                }
             }
             if (wtm.showItem(obj, wtm.machines)) {
                 wtm.filteredData.push(obj);
