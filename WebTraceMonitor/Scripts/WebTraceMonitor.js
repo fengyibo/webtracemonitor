@@ -118,6 +118,8 @@
         wtm.errorCount = 0;
         wtm.machines = new Object();
         wtm.machines.all = true;
+        wtm.colorIndex = 0;
+        wtm.machineColors = {};
         wtm.grid.focus();
     },
 
@@ -324,7 +326,7 @@
         }
         d.write("<\/pre>");
         d.close();
-        var ok = d.execCommand('SaveAs', true, 'WebTraceLog.txt');
+        var ok = d.execCommand('SaveAs', '', 'WebTraceLog.txt');
         if(ok == false) {
             alert('Canceled or not supported in current browser.');
         }
