@@ -37,8 +37,6 @@ The easiest way to deploy Web Trace Monitor is by publishing it directly from Gi
 
 The deployment is started automatically and after it has finished you should be able to access your instance of Web Trace Monitor.
 
-[Step-by-Step Git deployment tutorial with screenshots]
-
 
 ### Windows Azure Web Role
 
