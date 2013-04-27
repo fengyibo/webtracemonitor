@@ -37,6 +37,9 @@ The easiest way to deploy Web Trace Monitor is by publishing it directly from Gi
 
 The deployment is started automatically and after it has finished you should be able to access your instance of Web Trace Monitor.
 
+[Step-by-Step Git deployment tutorial with screenshots]
+
+
 ### Windows Azure Web Role
 
 + Clone the repo
@@ -133,3 +136,4 @@ If you have any feedback, questions or ideas for enhancements, please use the Gi
 [here]:https://github.com/berndku/webtracemonitor/blob/master/deploy/SystemDiagnosticsTraceListener/SystemDiagnosticsTraceListener.zip
 [DebugView]:http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx
 [Chainsaw]:http://logging.apache.org/chainsaw/index.html
+[Step-by-Step Git deployment tutorial with screenshots]:http://www.dotnetcurry.com/ShowArticle.aspx?ID=881
